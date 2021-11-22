@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://kit.fontawesome.com/5397d98a18.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>Check the weather in your city!</title>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar">
+
+      <form class="form-inline my-2" id="search-city">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search city" aria-label="Search"
+          id="search-city-input" autocomplete="off" autofocus="on">
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit"><i class="fas fa-search-location"></i></button>
+        <button type="button" class="btn btn-outline-success currentLocation"><i
+            class="fas fa-street-view"></i></button>
+      </form>
+
+    </nav>
+
+    <h1>
+      <span id="city"></span>
+      <br />
+      <span class="tempHeading"></span>
+      <span class="temperature" id="temperature">
+        <a href="#" id="celsius-unit">
+          C
+        </a>|
+        <a href="#" id="fahrenheit-unit">
+          F
+        </a>
+      </span>
+    </h1>
+
+    <div class="row">
+
+      <div class="col-4 weatherInfo">
+        <ul>
+          <li>
+            H : <span class="maxTemp" id="max-temp"></span>
+            </br>
+            L : <span class="minTemp" id="min-temp"></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-4">
+        <ul>
+          <li class="todayDate" id="today-date">
+            Thursday 22:00
+          </li>
+          <li class="skyDescription" id="sky-description"></li>
+        </ul>
+      </div>
+
+      <div class="col-4 weatherInfo">
+        <ul>
+          <li class="humidity">
+            Humidity:
+            <span id="humidity"></span> %
+          </li>
+          <li class="windSpeed">
+            Wind:
+            <span id="wind-speed"></span> km/h
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="row byHour shadow ">
+      <div class="col p-2">
+        <div class="time">9AM</div>
+        <div class="icon">🌤</div>
+        <div class="temperature">8°</div>
+      </div>
+      <div class="col p-2">
+        <div class="time">10AM</div>
+        <div class="icon">☀</div>
+        <div class="temperature">9°</div>
+      </div>
+      <div class="col p-2">
+        <div class="time">11AM</div>
+        <div class="icon">🌤</div>
+        <div class="temperature">10°</div>
+      </div>
+      <div class="col p-2">
+        <div class="time">12AM</div>
+        <div class="icon">⛅</div>
+        <div class="temperature">10°</div>
+      </div>
+      <div class="col p-2">
+        <div class="time">1PM</div>
+        <div class="icon">⛅</div>
+        <div class="temperature">11°</div>
+      </div>
+    </div>
+
+    <div class="tableHeading">
+      🕜 HOURLY FORECAST
+    </div>
+
+    <div class="table-responsive-sm shadow hourly">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>Time</td>
+            <td>2PM</td>
+            <td>3PM</td>
+            <td>4PM</td>
+            <td>5PM</td>
+            <td>6PM</td>
+            <td>7PM</td>
+            <td>8PM</td>
+            <td>9PM</td>
+            <td>10PM</td>
+            <td>11PM</td>
+            <td>12PM</td>
+            <td>1AM</td>
+          </tr>
+          <tr>
+            <td>⛅</td>
+            <td>⛅</td>
+            <td>⛅</td>
+            <td>⛅</td>
+            <td>☁</td>
+            <td>☁</td>
+            <td>☁</td>
+            <td>🌨</td>
+            <td>🌨</td>
+            <td>🌨</td>
+            <td>🌩</td>
+            <td>🌨</td>
+            <td>🌨</td>
+          </tr>
+          <tr>
+            <td>Temp</td>
+            <td>10°</td>
+            <td>11°</td>
+            <td>11°</td>
+            <td>10°</td>
+            <td>9°</td>
+            <td>9°</td>
+            <td>8°</td>
+            <td>7°</td>
+            <td>6°</td>
+            <td>5°</td>
+            <td>5°</td>
+            <td>4°</td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+    <div class="tableHeading">
+      📅 5-DAY FORECAST
+    </div>
+    <table class="table table-sm weekdays shadow">
+      <caption>Weather in the next days</caption>
+      <tbody>
+        <tr>
+          <th scope="row">Monday</th>
+          <td>☁</td>
+          <td>5°</td>
+          <td>11°</td>
+        </tr>
+        <tr>
+          <th scope="row">Tuesday</th>
+          <td>⛅</td>
+          <td>8°</td>
+          <td>10°</td>
+        </tr>
+        <tr>
+          <th scope="row">Wednesday</th>
+          <td>🌨</td>
+          <td>7°</td>
+          <td>11°</td>
+        </tr>
+        <tr>
+          <th scope="row">Thursday</th>
+          <td>🌨</td>
+          <td>8°</td>
+          <td>13°</td>
+        </tr>
+        <tr>
+          <th scope="row">Friday</th>
+          <td>🌨</td>
+          <td>11°</td>
+          <td>13°</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <h6>
+      Coded by Dominika Kaźmierczak
+    </h6>
+
+  </div>
+
+  <script src="script.js">
+  </script>
+</body>
+
+</html>
