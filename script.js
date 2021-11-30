@@ -1,12 +1,9 @@
 //Date
 let now = new Date()
-
 let days = ["Sunday", "Monday", "Tuesday", "Thursday", "Friday", "Saturday"]
 let day = days[now.getDay()]
-
 let hours = now.getHours()
 let minutes = now.getMinutes()
-
 let today = document.querySelector("#today-date")
 
 if (minutes < 10) {
@@ -20,12 +17,13 @@ if (minutes < 10) {
 //All the displaying functions
 function showCity(response) {
   document.querySelector("#city").innerHTML = response.data.name
+  console.log(response)
 }
 
 function showTemperature(response) {
-  document.querySelector(".tempHeading").innerHTML = `${Math.round(
+  document.querySelector("#tempHeading").innerHTML = `${Math.round(
     response.data.main.temp
-  )}°C`
+  )}°`
 }
 
 function showSky(response) {
@@ -57,6 +55,12 @@ function showWindSpeed(response) {
   )}`
 }
 
+//function getForecast(coordinates){
+//  let apiKey = "e2e761297b5d8c34616696904be5d3a8"
+//  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+//  axios.get(apiUrl).then(displayForecast);
+//}
+
 //DisplayInfo
 function displayInfo(response) {
   showCity(response)
@@ -66,6 +70,7 @@ function displayInfo(response) {
   showMinTemp(response)
   showHumidity(response)
   showWindSpeed(response)
+ // getForecats(response.data.coord)
 }
 
 function searchCity(city) {
@@ -104,7 +109,7 @@ fahrenheitUnit.addEventListener("click", fahrenheitTemperature)
 //Celsius
 function celsiusTemperature(event) {
   event.preventDefault()
-  let temperature = document.querySelector(".tempHeading")
+  let temperature = document.querySelector("#tempHeading")
   temperature.innerHTML = "7°"
 }
 
