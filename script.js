@@ -61,7 +61,7 @@ function showWindSpeed(response) {
 //  axios.get(apiUrl).then(displayForecast);
 //}
 
-//DisplayInfo
+//Function running all the displaying functions
 function displayInfo(response) {
   showCity(response)
   showTemperature(response)
@@ -70,9 +70,12 @@ function displayInfo(response) {
   showMinTemp(response)
   showHumidity(response)
   showWindSpeed(response)
- // getForecats(response.data.coord)
+  // getForecats(response.data.coord)
+
+  celsiusTemperature = response.data.main.temp
 }
 
+//Function searching info about the city
 function searchCity(city) {
   let apiKey = "e2e761297b5d8c34616696904be5d3a8"
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
@@ -84,39 +87,14 @@ function searchCity(city) {
   }
 }
 
+//Function that's receiving city
 function handleSubmit(event) {
   event.preventDefault()
   let city = document.querySelector("#search-city-input").value
   searchCity(city)
 }
 
-let form = document.querySelector("#search-city")
-form.addEventListener("submit", handleSubmit)
-
-//default
-searchCity("Halden")
-
-//Fahrenheit
-function fahrenheitTemperature(event) {
-  event.preventDefault()
-  let temperature = document.querySelector(".tempHeading")
-  temperature.innerHTML = "45°"
-}
-
-let fahrenheitUnit = document.querySelector("#fahrenheit-unit")
-fahrenheitUnit.addEventListener("click", fahrenheitTemperature)
-
-//Celsius
-function celsiusTemperature(event) {
-  event.preventDefault()
-  let temperature = document.querySelector("#tempHeading")
-  temperature.innerHTML = "7°"
-}
-
-let celsiusUnit = document.querySelector("#celsius-unit")
-celsiusUnit.addEventListener("click", celsiusTemperature)
-
-//Current Location
+//Function displaying info about the current city
 function showPosition(position) {
   let lat = position.coords.latitude
   let lon = position.coords.longitude
@@ -126,6 +104,7 @@ function showPosition(position) {
   axios.get(`${apiUrl}`).then(displayInfo)
 }
 
+//Function getting the current location, after clicking the location button
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition)
@@ -134,5 +113,33 @@ function getLocation() {
   }
 }
 
+//Function showing fahrenheit temp. after clicking the "F" link
+function showFahrenheitTemperature(event) {
+  event.preventDefault()
+  let temperature = document.querySelector("#tempHeading")
+  temperature.innerHTML = `${Math.round((celsiusTemperature * 9) / 5 + 32)}°`
+}
+
+//Function showing celsius temp. after clicking the "C" link
+function showCelsiusTemperature(event) {
+  event.preventDefault()
+  let temperature = document.querySelector("#tempHeading")
+  temperature.innerHTML = Math.round(celsiusTemperature)
+}
+
+let celsiusTemperature = null
+
+let fahrenheitUnit = document.querySelector("#fahrenheit-unit")
+fahrenheitUnit.addEventListener("click", showFahrenheitTemperature)
+
+let celsiusUnit = document.querySelector("#celsius-unit")
+celsiusUnit.addEventListener("click", showCelsiusTemperature)
+
 let currentLocationBtn = document.querySelector(".currentLocation")
 currentLocationBtn.addEventListener("click", getLocation)
+
+let form = document.querySelector("#search-city")
+form.addEventListener("submit", handleSubmit)
+
+//default
+searchCity("Halden")
