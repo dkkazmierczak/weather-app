@@ -75,6 +75,8 @@ function displayInfo(response) {
   // getForecats(response.data.coord)
 
   celsiusTemperature = response.data.main.temp
+  celsiusMaxTemp = response.data.main.temp_max
+  celsiusMinTemp = response.data.main.temp_min
 }
 
 //Function searching info about the city
@@ -120,8 +122,15 @@ function showFahrenheitTemperature(event) {
   event.preventDefault()
   celsiusUnit.classList.remove("active")
   fahrenheitUnit.classList.add("active")
-  let temperature = document.querySelector("#temp-heading")
-  temperature.innerHTML = `${Math.round((celsiusTemperature * 9) / 5 + 32)}°`
+  document.querySelector("#temp-heading").innerHTML = `${Math.round(
+    (celsiusTemperature * 9) / 5 + 32
+  )}°`
+  document.querySelector("#max-temp").innerHTML = `${Math.round(
+    (celsiusMaxTemp * 9) / 5 + 32
+  )}°F`
+  document.querySelector("#min-temp").innerHTML = `${Math.round(
+    (celsiusMinTemp * 9) / 5 + 32
+  )}°F`
 }
 
 //Function showing celsius temp. after clicking the "C" link
@@ -129,11 +138,20 @@ function showCelsiusTemperature(event) {
   event.preventDefault()
   celsiusUnit.classList.add("active")
   fahrenheitUnit.classList.remove("active")
-  let temperature = document.querySelector("#temp-heading")
-  temperature.innerHTML = `${Math.round(celsiusTemperature)}°`
+  document.querySelector("#temp-heading").innerHTML = `${Math.round(
+    celsiusTemperature
+  )}°`
+  document.querySelector("#max-temp").innerHTML = `${Math.round(
+    celsiusMaxTemp
+  )}°C`
+  document.querySelector("#min-temp").innerHTML = `${Math.round(
+    celsiusMinTemp
+  )}°C`
 }
 
 let celsiusTemperature = null
+let celsiusMaxTemp = null
+let celsiusMinTemp = null
 
 let fahrenheitUnit = document.querySelector("#fahrenheit-unit")
 fahrenheitUnit.addEventListener("click", showFahrenheitTemperature)
