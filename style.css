@@ -60,6 +60,7 @@ ul {
 
 .units {
   font-size: 15px;
+  font-weight:300;
   vertical-align: 35px;
 }
 
@@ -88,4 +89,16 @@ ul {
 .table,
 .col {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.units .active{
+  font-size:25px;
+  font-weight:400;
+  color:rgba(255, 255, 255, 1);
+  vertical-align: -5px;
+}
+
+.units .active:hover{
+  text-decoration: none;
+  cursor: default;
 }

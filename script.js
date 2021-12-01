@@ -21,9 +21,11 @@ function showCity(response) {
 }
 
 function showTemperature(response) {
-  document.querySelector("#tempHeading").innerHTML = `${Math.round(
+  document.querySelector("#temp-heading").innerHTML = `${Math.round(
     response.data.main.temp
   )}°`
+  celsiusUnit.classList.add("active")
+  fahrenheitUnit.classList.remove("active")
 }
 
 function showSky(response) {
@@ -116,15 +118,19 @@ function getLocation() {
 //Function showing fahrenheit temp. after clicking the "F" link
 function showFahrenheitTemperature(event) {
   event.preventDefault()
-  let temperature = document.querySelector("#tempHeading")
+  celsiusUnit.classList.remove("active")
+  fahrenheitUnit.classList.add("active")
+  let temperature = document.querySelector("#temp-heading")
   temperature.innerHTML = `${Math.round((celsiusTemperature * 9) / 5 + 32)}°`
 }
 
 //Function showing celsius temp. after clicking the "C" link
 function showCelsiusTemperature(event) {
   event.preventDefault()
-  let temperature = document.querySelector("#tempHeading")
-  temperature.innerHTML = Math.round(celsiusTemperature)
+  celsiusUnit.classList.add("active")
+  fahrenheitUnit.classList.remove("active")
+  let temperature = document.querySelector("#temp-heading")
+  temperature.innerHTML = `${Math.round(celsiusTemperature)}°`
 }
 
 let celsiusTemperature = null
