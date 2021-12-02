@@ -80,39 +80,14 @@
 
     </div>
 
-    <div class="row byHour shadow ">
-      <div class="col p-2">
-        <div class="time">9AM</div>
-        <div class="icon">🌤</div>
-        <div class="temperature">8°</div>
-      </div>
-      <div class="col p-2">
-        <div class="time">10AM</div>
-        <div class="icon">☀</div>
-        <div class="temperature">9°</div>
-      </div>
-      <div class="col p-2">
-        <div class="time">11AM</div>
-        <div class="icon">🌤</div>
-        <div class="temperature">10°</div>
-      </div>
-      <div class="col p-2">
-        <div class="time">12AM</div>
-        <div class="icon">⛅</div>
-        <div class="temperature">10°</div>
-      </div>
-      <div class="col p-2">
-        <div class="time">1PM</div>
-        <div class="icon">⛅</div>
-        <div class="temperature">11°</div>
-      </div>
-    </div>
+    <div class="firstForecast shadow" id="first-forecast"></div>
 
     <div class="tableHeading">
       🕜 HOURLY FORECAST
     </div>
 
-    <div class="table-responsive-sm shadow hourly">
+  <div class="hourlyForecast" id="hourly-forecast">
+    <div class="table-responsive-sm shadow">
       <table class="table">
         <tbody>
           <tr>
@@ -164,49 +139,17 @@
 
       </table>
     </div>
+    </div>
 
     <div class="tableHeading">
       📅 5-DAY FORECAST
     </div>
-    <table class="table table-sm weekdays shadow">
-      <caption>Weather in the next days</caption>
-      <tbody>
-        <tr>
-          <th scope="row">Monday</th>
-          <td>☁</td>
-          <td>5°</td>
-          <td>11°</td>
-        </tr>
-        <tr>
-          <th scope="row">Tuesday</th>
-          <td>⛅</td>
-          <td>8°</td>
-          <td>10°</td>
-        </tr>
-        <tr>
-          <th scope="row">Wednesday</th>
-          <td>🌨</td>
-          <td>7°</td>
-          <td>11°</td>
-        </tr>
-        <tr>
-          <th scope="row">Thursday</th>
-          <td>🌨</td>
-          <td>8°</td>
-          <td>13°</td>
-        </tr>
-        <tr>
-          <th scope="row">Friday</th>
-          <td>🌨</td>
-          <td>11°</td>
-          <td>13°</td>
-        </tr>
-      </tbody>
-    </table>
 
+    <div class="dailyForecast" id="daily-forecast">
+    </div>
 
     <h6>
-     <a href="https://github.com/dkkazmierczak/weather-app" class="">Open-source code</a> by Dominika Kaźmierczak
+      <a href="https://github.com/dkkazmierczak/weather-app" class="">Open-source code</a> by Dominika Kaźmierczak
     </h6>
 
   </div>

@@ -57,11 +57,51 @@ function showWindSpeed(response) {
   )}`
 }
 
-//function getForecast(coordinates){
-//  let apiKey = "e2e761297b5d8c34616696904be5d3a8"
-//  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-//  axios.get(apiUrl).then(displayForecast);
-//}
+//Function displaying first 5 hours of forecast
+function displayFirstForecast() {
+  let firstForecast = document.querySelector("#first-forecast")
+
+  let forecastHTML = `<div class="row">`
+  let hours = ["9AM", "10AM", "11AM", "12AM", "1PM"]
+  hours.forEach(function (hour) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col p-2">
+      <div class="time">${hour}</div>
+      <div class="icon">🌤</div>
+      <div class="temperature">8°</div>
+    </div>
+  `
+  })
+  forecastHTML = forecastHTML + `</div>`
+
+  firstForecast.innerHTML = forecastHTML
+}
+
+//Function displaying daily forecast
+function displayDailyForecast() {
+  let dailyForecast = document.querySelector("#daily-forecast")
+
+  let forecastHTML = `<table class="table table-sm shadow"><caption>Weather in the next days</caption>`
+  let days = ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday"]
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML + `
+        <tbody>
+          <tr>
+            <th scope="row">${day}</th>
+            <td>☁</td>
+            <td>5°</td>
+            <td>11°</td>
+          </tr>
+        <tbody>
+  `
+  })
+  forecastHTML = forecastHTML + `</table>`
+
+  dailyForecast.innerHTML = forecastHTML
+}
 
 //Function running all the displaying functions
 function displayInfo(response) {
@@ -72,7 +112,8 @@ function displayInfo(response) {
   showMinTemp(response)
   showHumidity(response)
   showWindSpeed(response)
-  // getForecats(response.data.coord)
+  displayFirstForecast()
+  displayDailyForecast()
 
   celsiusTemperature = response.data.main.temp
   celsiusMaxTemp = response.data.main.temp_max
