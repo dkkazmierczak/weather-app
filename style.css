@@ -88,7 +88,7 @@ ul {
 }
 
 .firstForecast {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .tableHeading {
@@ -112,4 +112,9 @@ ul {
 .units .active:hover{
   text-decoration: none;
   cursor: default;
+}
+
+.hourlyForecast td{
+  font-size:15px;
+  padding-left: 5px;
 }

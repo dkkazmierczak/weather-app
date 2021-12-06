@@ -1,6 +1,14 @@
 //Date
 let now = new Date()
-let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+]
 let day = days[now.getDay()]
 let hours = now.getHours()
 let minutes = now.getMinutes()
@@ -56,22 +64,36 @@ function showWindSpeed(response) {
   )}`
 }
 
+//Function formating to hours
+function formatHours(x) {
+  let date = new Date(x * 1000)
+  let hours = date.toLocaleString(`en-US`, { hour: `numeric`, hour12: true })
+
+  return hours
+}
+
 //Function displaying first 5 hours of forecast
 function displayFirstForecast(response) {
+  let forecast = response.data.hourly
   let firstForecast = document.querySelector("#first-forecast")
   let forecastHTML = `<div class="row">`
-  let hours = ["9AM", "10AM", "11AM", "12AM", "1PM"]
 
-  hours.forEach(function (hour) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastHour, index) {
+    if (index > 0 && index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col p-2">
-      <div class="time">${hour}</div>
-      <div class="icon">🌤</div>
-      <div class="temperature">8°</div>
+      <div class="time">${formatHours(forecastHour.dt)}</div>
+      <div class="icon">
+      <img src="http://openweathermap.org/img/wn/${
+        forecastHour.weather[0].icon
+      }@2x.png" alt="" width="30"/>
+      </div>
+      <div class="temperature">${Math.round(forecastHour.temp)}°</div>
     </div>
   `
+    }
   })
   forecastHTML = forecastHTML + `</div>`
 
@@ -80,36 +102,32 @@ function displayFirstForecast(response) {
 
 //Function displaying hourly forecast
 function displayHourlyForecast(response) {
+  let forecast = response.data.hourly
   let hourlyForecast = document.querySelector("#hourly-forecast")
   let forecastHTML = `<div class="table-responsive-sm shadow"><table class="table"><tbody><tr>`
-  let hours = [
-    "2PM",
-    "3PM",
-    "4PM",
-    "5PM",
-    "6PM",
-    "7PM",
-    "8PM",
-    "9PM",
-    "10PM",
-    "11PM",
-    "12PM",
-  ]
 
-  hours.forEach(function (hour) {
-    forecastHTML = forecastHTML + `  <td>${hour}</td>`
+  forecast.forEach(function (forecastHour, index) {
+    if (index > 5 && index < 24) {
+      forecastHTML = forecastHTML + ` <td>${formatHours(forecastHour.dt)}</td>`
+    }
   })
 
   forecastHTML = forecastHTML + `</tr>`
 
-  hours.forEach(function (icon) {
-    forecastHTML = forecastHTML + `<td>⛅</td>`
+  forecast.forEach(function (forecastHour, index) {
+    if (index > 5 && index < 24) {
+      forecastHTML =
+        forecastHTML +
+        `<td><img src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png" alt="" width="30"/></td>`
+    }
   })
 
   forecastHTML = forecastHTML + `</tr>`
 
-  hours.forEach(function (temp) {
-    forecastHTML = forecastHTML + `<td>8°</td>`
+  forecast.forEach(function (forecastHour, index) {
+    if (index > 5 && index < 24) {
+      forecastHTML = forecastHTML + `<td>${Math.round(forecastHour.temp)}°</td>`
+    }
   })
 
   forecastHTML = forecastHTML + `</tr></tbody></table></div>`
@@ -118,12 +136,20 @@ function displayHourlyForecast(response) {
 }
 
 //Function formating date for the foreast
-function formatDay(x){
-  let date = new Date(x*1000)
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday", "Saturday"]
+function formatDay(x) {
+  let date = new Date(x * 1000)
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ]
   let day = days[date.getDay()]
 
-  return day;
+  return day
 }
 
 //Function displaying daily forecast
@@ -133,21 +159,24 @@ function displayDailyForecast(response) {
   let forecastHTML = `<table class="table table-sm shadow"><caption>Weather in the next days</caption>`
 
   forecast.forEach(function (forecastDay, index) {
-    if(index > 0 && index <7)
-    forecastHTML =
-      forecastHTML +
-      ` 
+    if (index > 0 && index < 7) {
+      forecastHTML =
+        forecastHTML +
+        ` 
       <tbody>
           <tr>
             <th scope="row">${formatDay(forecastDay.dt)}</th>
             <td>
-            <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="30"/>
+            <img src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png" alt="" width="30"/>
             </td>
             <td>${Math.round(forecastDay.temp.min)}°</td>
             <td>${Math.round(forecastDay.temp.max)}°</td>
           </tr>
         <tbody>
   `
+    }
   })
   forecastHTML = forecastHTML + `</table>`
 
