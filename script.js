@@ -58,11 +58,11 @@ function showWindSpeed(response) {
 }
 
 //Function displaying first 5 hours of forecast
-function displayFirstForecast() {
+function displayFirstForecast(response) {
   let firstForecast = document.querySelector("#first-forecast")
-
   let forecastHTML = `<div class="row">`
   let hours = ["9AM", "10AM", "11AM", "12AM", "1PM"]
+
   hours.forEach(function (hour) {
     forecastHTML =
       forecastHTML +
@@ -79,16 +79,46 @@ function displayFirstForecast() {
   firstForecast.innerHTML = forecastHTML
 }
 
-//Function displaying daily forecast
-function displayDailyForecast() {
-  let dailyForecast = document.querySelector("#daily-forecast")
+//Function displaying hourly forecast
+function displayHourlyForecast(response) {
+  let hourlyForecast = document.querySelector("#hourly-forecast")
+  let forecastHTML = `<div class="table-responsive-sm shadow"><table class="table"><tbody><tr>`
+  let hours = ["2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM", "9PM", "10PM", "11PM", "12PM"]
 
+  hours.forEach(function(hour) {
+    forecastHTML =
+      forecastHTML +`  <td>${hour}</td>`
+  })
+
+ forecastHTML = forecastHTML + `</tr>`
+
+  hours.forEach(function(icon){
+    forecastHTML =
+      forecastHTML + `<td>⛅</td>`
+  })
+
+  forecastHTML = forecastHTML + `</tr>`
+
+  hours.forEach(function (temp) {
+    forecastHTML = forecastHTML + `<td>8°</td>`
+  })
+
+  forecastHTML = forecastHTML + `</tr></tbody></table></div>`
+
+  hourlyForecast.innerHTML = forecastHTML
+}
+
+//Function displaying daily forecast
+function displayDailyForecast(response) {
+  let dailyForecast = document.querySelector("#daily-forecast")
   let forecastHTML = `<table class="table table-sm shadow"><caption>Weather in the next days</caption>`
-  let days = ["Monday", "Tuesday", "Wednsday", "Thursday", "Friday"]
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+
   days.forEach(function (day) {
     forecastHTML =
-      forecastHTML + `
-        <tbody>
+      forecastHTML +
+      ` 
+      <tbody>
           <tr>
             <th scope="row">${day}</th>
             <td>☁</td>
@@ -103,6 +133,20 @@ function displayDailyForecast() {
   dailyForecast.innerHTML = forecastHTML
 }
 
+function displayForecasts(response){
+  displayFirstForecast(response)
+  displayHourlyForecast(response)
+  displayDailyForecast(response)
+}
+
+function getForecast(coordinates){
+  let apiKey = "e2e761297b5d8c34616696904be5d3a8"
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=minutely&appid=${apiKey}&units=metric`
+
+  axios.get(apiUrl).then(displayForecasts)
+}
+
+
 //Function running all the displaying functions
 function displayInfo(response) {
   showCity(response)
@@ -112,8 +156,7 @@ function displayInfo(response) {
   showMinTemp(response)
   showHumidity(response)
   showWindSpeed(response)
-  displayFirstForecast()
-  displayDailyForecast()
+  getForecast(response.data.coord)
 
   celsiusTemperature = response.data.main.temp
   celsiusMaxTemp = response.data.main.temp_max
