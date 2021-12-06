@@ -33,7 +33,7 @@ h6 {
 caption {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
-  padding-top: 0;
+  padding: 0;
 }
 
 ul {
@@ -46,6 +46,17 @@ ul {
   background-color: rgba(0, 0, 0, 0.4);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
+}
+
+.navbarContainer {
+  display:flex;
+  justify-content: space-between;
+  align-items: left;
+}
+
+.searchNavbar li {
+  display: inline-block;
+  text-decoration: none;
 }
 
 .tempHeading {
