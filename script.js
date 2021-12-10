@@ -164,7 +164,7 @@ function formatDay(x) {
 function displayDailyForecast(response) {
   let forecast = response.data.daily
   let dailyForecast = document.querySelector("#daily-forecast")
-  let forecastHTML = `<table class="table table-sm shadow"><caption>Weather in the next days</caption>`
+  let forecastHTML = `<table class="table table-sm shadow">`
 
   forecast.forEach(function (forecastDay, index) {
     if (index > 0 && index < 7) {

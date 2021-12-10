@@ -118,7 +118,6 @@ ul {
   font-size:15px;
 }
 
-
-.minTempDaily{
+.minTempDaily, .minTemp{
   color:rgba(255, 255, 255, 0.6);
 }
