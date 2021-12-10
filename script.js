@@ -28,11 +28,9 @@ function showCity(response) {
 }
 
 function showTemperature(response) {
-  document.querySelector("#temp-heading").innerHTML = `${Math.round(
-    response.data.main.temp
-  )}°`
-  celsiusUnit.classList.add("active")
-  fahrenheitUnit.classList.remove("active")
+  document.querySelector("#temp-heading").innerHTML = `${Math.round(response.data.main.temp)}°`
+  //celsiusUnit.classList.add("active")
+  //fahrenheitUnit.classList.remove("active")
 }
 
 function showSky(response) {
@@ -79,6 +77,10 @@ function displayFirstForecast(response) {
   let forecastHTML = `<div class="row">`
 
   forecast.forEach(function (forecastHour, index) {
+    let temp = `${Math.round(forecastHour.temp)}`
+    let firstForecastTemp = document.querySelector(".firstForecastTemp")
+
+
     if (index > 0 && index < 6) {
       forecastHTML =
         forecastHTML +
@@ -90,10 +92,11 @@ function displayFirstForecast(response) {
         forecastHour.weather[0].icon
       }@2x.png" alt="" width="30"/>
       </div>
-      <div class="temperature">${Math.round(forecastHour.temp)}°</div>
+      <div class="firstForecastTemp">${temp}°</div>
     </div>
   `
     }
+
   })
   forecastHTML = forecastHTML + `</div>`
 
@@ -107,26 +110,30 @@ function displayHourlyForecast(response) {
   let forecastHTML = `<div class="table-responsive-sm shadow"><table class="table"><tbody><tr>`
 
   forecast.forEach(function (forecastHour, index) {
-    if (index > 5 && index < 24) {
+    if (index > 5 && index < 25) {
       forecastHTML = forecastHTML + ` <td>${formatHours(forecastHour.dt)}</td>`
     }
   })
 
-  forecastHTML = forecastHTML + `</tr>`
+  forecastHTML = forecastHTML + `</tr><tr>`
 
   forecast.forEach(function (forecastHour, index) {
-    if (index > 5 && index < 24) {
+    if (index > 5 && index < 25) {
       forecastHTML =
         forecastHTML +
-        `<td><img src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png" alt="" width="30"/></td>`
+        `<td>
+        <img src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png" alt="" width="30"/>
+        </td>`
     }
   })
 
-  forecastHTML = forecastHTML + `</tr>`
+  forecastHTML = forecastHTML + `</tr><tr>`
 
   forecast.forEach(function (forecastHour, index) {
-    if (index > 5 && index < 24) {
-      forecastHTML = forecastHTML + `<td>${Math.round(forecastHour.temp)}°</td>`
+    if (index > 5 && index < 25) {
+      forecastHTML =
+        forecastHTML +
+        `<td class="temperature">${Math.round(forecastHour.temp)}°</td>`
     }
   })
 
@@ -171,7 +178,9 @@ function displayDailyForecast(response) {
               forecastDay.weather[0].icon
             }@2x.png" alt="" width="30"/>
             </td>
-            <td>${Math.round(forecastDay.temp.min)}°</td>
+            <td class="minTempDaily">${Math.round(
+              forecastDay.temp.min
+            )}°</td>
             <td>${Math.round(forecastDay.temp.max)}°</td>
           </tr>
         <tbody>
@@ -208,9 +217,9 @@ function displayInfo(response) {
   showWindSpeed(response)
   getForecast(response.data.coord)
 
-  celsiusTemperature = response.data.main.temp
+  /*celsiusTemperature = response.data.main.temp
   celsiusMaxTemp = response.data.main.temp_max
-  celsiusMinTemp = response.data.main.temp_min
+  celsiusMinTemp = response.data.main.temp_min*/
 }
 
 //Function searching info about the city
@@ -251,8 +260,17 @@ function getLocation() {
   }
 }
 
+let currentLocationBtn = document.querySelector(".currentLocation")
+currentLocationBtn.addEventListener("click", getLocation)
+
+let form = document.querySelector("#search-city")
+form.addEventListener("submit", handleSubmit)
+
+//default
+searchCity("Halden")
+
 //Function showing fahrenheit temp. after clicking the "F" link
-function showFahrenheitTemperature(event) {
+/*function showFahrenheitTemperature(event) {
   event.preventDefault()
   celsiusUnit.classList.remove("active")
   fahrenheitUnit.classList.add("active")
@@ -292,12 +310,4 @@ fahrenheitUnit.addEventListener("click", showFahrenheitTemperature)
 
 let celsiusUnit = document.querySelector("#celsius-unit")
 celsiusUnit.addEventListener("click", showCelsiusTemperature)
-
-let currentLocationBtn = document.querySelector(".currentLocation")
-currentLocationBtn.addEventListener("click", getLocation)
-
-let form = document.querySelector("#search-city")
-form.addEventListener("submit", handleSubmit)
-
-//default
-searchCity("Halden")
+*/
