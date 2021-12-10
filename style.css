@@ -91,6 +91,9 @@ ul {
   margin: 10px 0;
 }
 
+.firstForecast .firstForecastTime, .firstForecastTemp{
+  font-size: 15px;
+}
 .tableHeading {
   font-size: 10px;
   font-weight: 500;
@@ -122,3 +125,5 @@ ul {
 .minTemp {
   color: rgba(255, 255, 255, 0.6);
 }
+
+

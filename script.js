@@ -28,7 +28,9 @@ function showCity(response) {
 }
 
 function showTemperature(response) {
-  document.querySelector("#temp-heading").innerHTML = `${Math.round(response.data.main.temp)}°`
+  document.querySelector("#temp-heading").innerHTML = `${Math.round(
+    response.data.main.temp
+  )}°`
   //celsiusUnit.classList.add("active")
   //fahrenheitUnit.classList.remove("active")
 }
@@ -65,7 +67,7 @@ function showWindSpeed(response) {
 //Function formating to hours
 function formatHours(x) {
   let date = new Date(x * 1000)
-  let hours = date.toLocaleString(`en-US`, { hour: `numeric`, hour12: true })
+  let hours = date.getHours()
 
   return hours
 }
@@ -74,30 +76,30 @@ function formatHours(x) {
 function displayFirstForecast(response) {
   let forecast = response.data.hourly
   let firstForecast = document.querySelector("#first-forecast")
-  let forecastHTML = `<div class="row">`
+  let forecastHTML = `<div class="row px-3 py-0">`
 
   forecast.forEach(function (forecastHour, index) {
     let temp = `${Math.round(forecastHour.temp)}`
     let firstForecastTemp = document.querySelector(".firstForecastTemp")
-
 
     if (index > 0 && index < 6) {
       forecastHTML =
         forecastHTML +
         `
     <div class="col p-2">
-      <div class="time">${formatHours(forecastHour.dt)}</div>
+      <div class="firstForecastTime">${formatHours(forecastHour.dt)}:00</div>
       <div class="icon">
       <img 
-        src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png" 
+        src="http://openweathermap.org/img/wn/${
+          forecastHour.weather[0].icon
+        }@2x.png" 
         alt="" 
-        width="30"/>
+        width="40"/>
       </div>
       <div class="firstForecastTemp">${temp}°</div>
     </div>
   `
     }
-
   })
   forecastHTML = forecastHTML + `</div>`
 
@@ -108,11 +110,11 @@ function displayFirstForecast(response) {
 function displayHourlyForecast(response) {
   let forecast = response.data.hourly
   let hourlyForecast = document.querySelector("#hourly-forecast")
-  let forecastHTML = `<div class="table-responsive-sm shadow"><table class="table"><tbody><tr>`
+  let forecastHTML = `<div class="table-responsive shadow"><table class="table" ><tbody><tr>`
 
   forecast.forEach(function (forecastHour, index) {
     if (index > 5 && index < 25) {
-      forecastHTML = forecastHTML + ` <td>${formatHours(forecastHour.dt)}</td>`
+      forecastHTML = forecastHTML + `<td>${formatHours(forecastHour.dt)}:00</td>`
     }
   })
 
@@ -134,7 +136,7 @@ function displayHourlyForecast(response) {
     if (index > 5 && index < 25) {
       forecastHTML =
         forecastHTML +
-        `<td class="temperature">${Math.round(forecastHour.temp)}°</td>`
+        `<td>${Math.round(forecastHour.temp)}°</td>`
     }
   })
 
@@ -179,9 +181,7 @@ function displayDailyForecast(response) {
               forecastDay.weather[0].icon
             }@2x.png" alt="" width="30"/>
             </td>
-            <td class="minTempDaily">${Math.round(
-              forecastDay.temp.min
-            )}°</td>
+            <td class="minTempDaily">${Math.round(forecastDay.temp.min)}°</td>
             <td>${Math.round(forecastDay.temp.max)}°</td>
           </tr>
         <tbody>
