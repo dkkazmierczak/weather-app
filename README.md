@@ -7,3 +7,5 @@ Or if you are polish, just click the button "PL" to go to website in polish vers
 Website URL - https://peaceful-bell-2f5896.netlify.app/ 💜
 
 I'm planning to improve it regularly :D
+
+Website was built during 8 week workshop SheCodes Plus 👩🏼‍💻
