@@ -49,7 +49,7 @@ ul {
 }
 
 .navbarContainer {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: left;
 }
@@ -71,7 +71,7 @@ ul {
 
 .units {
   font-size: 15px;
-  font-weight:300;
+  font-weight: 300;
   vertical-align: 35px;
 }
 
@@ -102,22 +102,23 @@ ul {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.units .active{
-  font-size:25px;
-  font-weight:400;
-  color:rgba(255, 255, 255, 1);
+.units .active {
+  font-size: 25px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
   vertical-align: -5px;
 }
 
-.units .active:hover{
+.units .active:hover {
   text-decoration: none;
   cursor: default;
 }
 
-.hourlyForecast td{
-  font-size:15px;
+.hourlyForecast td {
+  font-size: 15px;
 }
 
-.minTempDaily, .minTemp{
-  color:rgba(255, 255, 255, 0.6);
+.minTempDaily,
+.minTemp {
+  color: rgba(255, 255, 255, 0.6);
 }
