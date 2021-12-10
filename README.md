@@ -9,3 +9,4 @@ Website URL - https://peaceful-bell-2f5896.netlify.app/ 💜
 I'm planning to improve it regularly :D
 
 Website was built during 8 week workshop SheCodes Plus 👩🏼‍💻
+And it's responsive, can be used on phone! 📱
