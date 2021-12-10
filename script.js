@@ -88,9 +88,10 @@ function displayFirstForecast(response) {
     <div class="col p-2">
       <div class="time">${formatHours(forecastHour.dt)}</div>
       <div class="icon">
-      <img src="http://openweathermap.org/img/wn/${
-        forecastHour.weather[0].icon
-      }@2x.png" alt="" width="30"/>
+      <img 
+        src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png" 
+        alt="" 
+        width="30"/>
       </div>
       <div class="firstForecastTemp">${temp}°</div>
     </div>
