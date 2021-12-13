@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://kit.fontawesome.com/5397d98a18.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>Prognoza pogody</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="navbarContainer">
+      <nav class="navbar searchNavbar">
+        <li>
+          <form class="form-inline my-2" id="search-city">
+        </li>
+        <li><input class="form-control mr-sm-2" type="search" placeholder="Wyszukaj miasto" aria-label="Search"
+            id="search-city-input" autocomplete="off" autofocus="on"></li>
+        <li><button class="btn btn-outline-info my-2 my-sm-0" type="submit"><i
+              class="fas fa-search-location"></i></button></li>
+        <li><button type="button" class="btn btn-outline-success currentLocation"><i
+              class="fas fa-street-view"></i></button></li>
+        </form>
+        <a href="../weather-app-en/index.html" class="btn btn-outline-info languageButton" role="button">EN</a>
+      </nav>
+    </div>
+
+    <h1>
+      <span id="city"></span>
+      <br />
+      <span class="tempHeading" id="temp-heading"></span>
+      <span class="units">
+        <a href="#" class="active" id="celsius-unit">
+          C
+        </a>
+
+        <a href="#" id="fahrenheit-unit">
+        </a>
+
+      </span>
+    </h1>
+
+    <div class="row">
+
+      <div class="col-4 weatherInfo p-0">
+        <ul>
+          <li>
+            Max : <span class="maxTemp" id="max-temp"></span>
+          </li>
+          <li>
+            <span class="minTemp">Min :</span> <span class="minTemp" id="min-temp"></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-4 p-0">
+        <ul>
+          <li class="todayDate" id="today-date">
+          </li>
+          <li class="skyDescription" id="sky-description"></li>
+        </ul>
+      </div>
+
+      <div class="col-4 weatherInfo p-0">
+        <ul>
+          <li class="humidity">
+            Wilgotność :
+            <span id="humidity"></span>%
+          </li>
+          <li class="windSpeed">
+            Wiatr:
+            <span id="wind-speed"></span>km/h
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="firstForecast shadow" id="first-forecast"></div>
+
+    <div class="tableHeading">
+      🕜 PROGNOZA GODZINOWA
+    </div>
+
+    <div class="hourlyForecast" id="hourly-forecast">
+    </div>
+
+    <div class="tableHeading">
+      📅 5-DNIOWA PROGNOZA
+    </div>
+
+    <div class="dailyForecast" id="daily-forecast">
+    </div>
+
+    <h6>
+      <a href="https://github.com/dkkazmierczak/weather-app-pl" class="">Otwarty kod żródłowy</a> stworzony przez
+      Dominikę Kaźmierczak
+    </h6>
+
+  </div>
+
+
+  <script src="script.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
