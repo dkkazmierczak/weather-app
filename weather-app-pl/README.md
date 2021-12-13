@@ -6,7 +6,5 @@ Także nie zwlekaj - wypróbuj! 😊
 Możesz również wypróbować przycisk lokalizacje, który zapyta Ciebie o dostęp do Twojej lokalizacji i pokaże Ci pogodę właśnie tam!  ✔
 A jeżeli wolisz sprawdzić pogodę w języku angielskim, to wystarczy że klikniesz przycisk "EN" a strona przekieruje Ciebie na wersję angielską! 🥂
 
-Link do strony - https://amazing-booth-e838fa.netlify.app/ 💜
-
 Apka zbudowana na 8 tygodniowych warsztatach online SheCodes Plus 👩🏼‍💻
 No i jest responsywna! Działa ładnie na telefonie 📱
