@@ -12,7 +12,7 @@
 
   <link rel="stylesheet" href="style.css">
 
-  <title>Check the weather in your city!</title>
+  <title>Prognoza pogody</title>
 </head>
 
 <body>
@@ -23,14 +23,14 @@
         <li>
           <form class="form-inline my-2" id="search-city">
         </li>
-        <li><input class="form-control mr-sm-2" type="search" placeholder="Search city" aria-label="Search"
+        <li><input class="form-control mr-sm-2" type="search" placeholder="Wyszukaj miasto" aria-label="Search"
             id="search-city-input" autocomplete="off" autofocus="on"></li>
         <li><button class="btn btn-outline-info my-2 my-sm-0" type="submit"><i
               class="fas fa-search-location"></i></button></li>
         <li><button type="button" class="btn btn-outline-success currentLocation"><i
               class="fas fa-street-view"></i></button></li>
         </form>
-        <a href="../weather-app-pl/index.html" class="btn btn-outline-info languageButton" role="button">PL</a>
+        <a href="../weather-app-en/index.html" class="btn btn-outline-info languageButton" role="button">EN</a>
       </nav>
     </div>
 
@@ -57,7 +57,7 @@
             Max : <span class="maxTemp" id="max-temp"></span>
           </li>
           <li>
-            <span class="minTemp">Min : </span><span class="minTemp" id="min-temp"></span>
+            <span class="minTemp">Min :</span> <span class="minTemp" id="min-temp"></span>
           </li>
         </ul>
       </div>
@@ -73,11 +73,11 @@
       <div class="col-4 weatherInfo p-0">
         <ul>
           <li class="humidity">
-            Humidity:
+            Wilgotność :
             <span id="humidity"></span>%
           </li>
           <li class="windSpeed">
-            Wind:
+            Wiatr:
             <span id="wind-speed"></span>km/h
           </li>
         </ul>
@@ -88,21 +88,22 @@
     <div class="firstForecast shadow" id="first-forecast"></div>
 
     <div class="tableHeading">
-      🕜 HOURLY FORECAST
+      🕜 PROGNOZA GODZINOWA
     </div>
 
     <div class="hourlyForecast" id="hourly-forecast">
     </div>
 
     <div class="tableHeading">
-      📅 5-DAY FORECAST
+      📅 5-DNIOWA PROGNOZA
     </div>
 
     <div class="dailyForecast" id="daily-forecast">
     </div>
 
     <h6>
-      <a href="https://github.com/dkkazmierczak/weather-app" class="">Open-source code</a> by Dominika Kaźmierczak
+      <a href="https://github.com/dkkazmierczak/weather-app-pl" class="">Otwarty kod żródłowy</a> stworzony przez
+      Dominikę Kaźmierczak
     </h6>
 
   </div>

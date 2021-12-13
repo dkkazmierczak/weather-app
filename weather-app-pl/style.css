@@ -1,0 +1,134 @@
+body {
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/133/original/halden2.jpg?1635620542");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+:root {
+  --primary-color: white;
+  --secondary-color: rgba(255, 255, 255, 0.6);
+}
+
+h1 {
+  color: var(--primary-color);
+  margin-top: 10px;
+  text-align: center;
+}
+
+tr {
+  color: var(--primary-color);
+}
+
+h6 {
+  color: var(--secondary-color);
+  font-size: 12px;
+  margin: 0;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.navbarContainer {
+  align-items: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchNavbar li {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.tempHeading {
+  font-size: 70px;
+}
+
+.weatherInfo {
+  color: var(--primary-color);
+  font-size: 15px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.skyDescription {
+  color: var(--primary-color);
+  font-size: 15px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.skyDescription:first-letter {
+  text-transform: capitalize;
+}
+
+.units {
+  font-size: 15px;
+  font-weight: 300;
+  vertical-align: 35px;
+}
+
+.todayDate {
+  color: var(--primary-color);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 300;
+  text-align: center;
+}
+
+.firstForecast {
+  margin: 10px 0;
+}
+
+.firstForecast .firstForecastTime,
+.firstForecastTemp {
+  font-size: 15px;
+}
+
+.tableHeading {
+  color: var(--secondary-color);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.table {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.col {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.units .active {
+  color: var(--primary-color);
+  font-size: 25px;
+  font-weight: 400;
+  vertical-align: -5px;
+}
+
+.units .active:hover {
+  text-decoration: none;
+  cursor: default;
+}
+
+.hourlyForecast td {
+  font-size: 15px;
+}
+
+.minTempDaily,
+.minTemp {
+  color: var(--secondary-color);
+}
