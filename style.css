@@ -5,41 +5,33 @@ body {
   height: 100%;
   width: 100%;
 }
-
-h1,
-.col,
-.weatherInfo,
-.skyDescription {
-  text-align: center;
-  color: white;
+:root {
+  --primary-color: white;
+  --secondary-color: rgba(255, 255, 255, 0.6);
 }
 
 h1 {
+  color: var(--primary-color);
   margin-top: 10px;
+  text-align: center;
 }
 
 tr {
-  color: white;
+  color: var(--primary-color);
 }
 
 h6 {
+  color: var(--secondary-color);
   font-size: 12px;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.5);
-  padding-bottom: 10px;
   margin: 0;
-}
-
-caption {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.5);
-  padding: 0;
+  padding-bottom: 10px;
+  text-align: center;
 }
 
 ul {
+  margin: 0;
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 .container {
@@ -49,9 +41,9 @@ ul {
 }
 
 .navbarContainer {
+  align-items: left;
   display: flex;
   justify-content: space-between;
-  align-items: left;
 }
 
 .searchNavbar li {
@@ -63,10 +55,22 @@ ul {
   font-size: 70px;
 }
 
-.weatherInfo,
-.skyDescription {
+.weatherInfo {
+  color: var(--primary-color);
   font-size: 15px;
   font-weight: 300;
+  text-align: center;
+}
+
+.skyDescription {
+  color: var(--primary-color);
+  font-size: 15px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.skyDescription:first-letter {
+  text-transform: capitalize;
 }
 
 .units {
@@ -75,40 +79,43 @@ ul {
   vertical-align: 35px;
 }
 
-.skyDescription:first-letter {
-  text-transform: capitalize;
-}
-
 .todayDate {
+  color: var(--primary-color);
   font-size: 20px;
   font-style: italic;
   font-weight: 300;
   text-align: center;
-  color: rgba(255, 255, 255, 1);
 }
 
 .firstForecast {
   margin: 10px 0;
 }
 
-.firstForecast .firstForecastTime, .firstForecastTemp{
+.firstForecast .firstForecastTime,
+.firstForecastTemp {
   font-size: 15px;
 }
+
 .tableHeading {
+  color: var(--secondary-color);
   font-size: 10px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
 }
 
-.table,
-.col {
+.table {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+.col {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: var(--primary-color);
+  text-align: center;
+}
+
 .units .active {
+  color: var(--primary-color);
   font-size: 25px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 1);
   vertical-align: -5px;
 }
 
@@ -123,7 +130,5 @@ ul {
 
 .minTempDaily,
 .minTemp {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--secondary-color);
 }
-
-
