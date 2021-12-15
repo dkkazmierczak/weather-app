@@ -28,12 +28,14 @@ function showCity(response) {
 }
 
 function showTemperature(response) {
-  document.querySelector("#temp-heading").innerHTML = `${Math.round(
-    response.data.main.temp
-  )}°`
+  document.querySelector("#temp-heading").innerHTML = `<img 
+        src="http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png" 
+        alt="" 
+        width="60"/>${Math.round(response.data.main.temp)}°`
 
-  //celsiusUnit.classList.add("active")
-  //fahrenheitUnit.classList.remove("active")
+  document.querySelector("#feels-like").innerHTML = `${
+    Math.round(response.data.main.feels_like * 10) / 10
+  }°C`
 }
 
 function showSky(response) {
@@ -43,14 +45,14 @@ function showSky(response) {
 
 function showMaxTemp(response) {
   document.querySelector("#max-temp").innerHTML = `${Math.round(
-    response.data.main.temp_max
-  )} °C`
+    (response.data.main.temp_max)*10
+  )/10} °C`
 }
 
 function showMinTemp(response) {
   document.querySelector("#min-temp").innerHTML = `${Math.round(
-    response.data.main.temp_min
-  )} °C`
+    (response.data.main.temp_min)*10
+  )/10} °C`
 }
 
 function showHumidity(response) {
@@ -61,8 +63,8 @@ function showHumidity(response) {
 
 function showWindSpeed(response) {
   document.querySelector("#wind-speed").innerHTML = `${Math.round(
-    response.data.wind.speed
-  )}`
+    (response.data.wind.speed)*10
+  )/10}`
 }
 
 //Function formating to hours
@@ -199,7 +201,6 @@ function displayForecasts(response) {
   displayFirstForecast(response)
   displayHourlyForecast(response)
   displayDailyForecast(response)
-  console.log(response.data)
 }
 
 function getForecast(coordinates) {
@@ -219,10 +220,6 @@ function displayInfo(response) {
   showHumidity(response)
   showWindSpeed(response)
   getForecast(response.data.coord)
-
-  /*celsiusTemperature = response.data.main.temp
-  celsiusMaxTemp = response.data.main.temp_max
-  celsiusMinTemp = response.data.main.temp_min*/
 }
 
 //Function searching info about the city
@@ -271,47 +268,3 @@ form.addEventListener("submit", handleSubmit)
 
 //default
 searchCity("Koszalin")
-
-//Function showing fahrenheit temp. after clicking the "F" link
-/*function showFahrenheitTemperature(event) {
-  event.preventDefault()
-  celsiusUnit.classList.remove("active")
-  fahrenheitUnit.classList.add("active")
-  document.querySelector("#temp-heading").innerHTML = `${Math.round(
-    (celsiusTemperature * 9) / 5 + 32
-  )}°`
-  document.querySelector("#max-temp").innerHTML = `${Math.round(
-    (celsiusMaxTemp * 9) / 5 + 32
-  )}°F`
-  document.querySelector("#min-temp").innerHTML = `${Math.round(
-    (celsiusMinTemp * 9) / 5 + 32
-  )}°F`
-}
-
-//Function showing celsius temp. after clicking the "C" link
-function showCelsiusTemperature(event) {
-  event.preventDefault()
-  celsiusUnit.classList.add("active")
-  fahrenheitUnit.classList.remove("active")
-  document.querySelector("#temp-heading").innerHTML = `${Math.round(
-    celsiusTemperature
-  )}°`
-  document.querySelector("#max-temp").innerHTML = `${Math.round(
-    celsiusMaxTemp
-  )}°C`
-  document.querySelector("#min-temp").innerHTML = `${Math.round(
-    celsiusMinTemp
-  )}°C`
-}
-
-
-let celsiusTemperature = null
-let celsiusMaxTemp = null
-let celsiusMinTemp = null
-
-let fahrenheitUnit = document.querySelector("#fahrenheit-unit")
-fahrenheitUnit.addEventListener("click", showFahrenheitTemperature)
-
-let celsiusUnit = document.querySelector("#celsius-unit")
-celsiusUnit.addEventListener("click", showCelsiusTemperature)
-*/

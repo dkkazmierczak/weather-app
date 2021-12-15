@@ -7,7 +7,7 @@ body {
 }
 :root {
   --primary-color: white;
-  --secondary-color: rgba(255, 255, 255, 0.6);
+  --secondary-color: rgba(255, 255, 255, 0.5);
 }
 
 h1 {
@@ -43,7 +43,7 @@ ul {
 .navbarContainer {
   align-items: left;
   display: flex;
-  justify-content: space-between;
+  
 }
 
 .searchNavbar li {
@@ -74,9 +74,17 @@ ul {
 }
 
 .units {
-  font-size: 15px;
-  font-weight: 300;
-  vertical-align: 35px;
+  color: var(--secondary-color);
+  font-size: 27px;
+  font-weight: 400;
+  vertical-align: 30px;
+}
+
+.feelsLike{
+  color: var(--secondary-color);
+  text-align:center;
+  font-style: italic;
+  font-size: 10px;
 }
 
 .todayDate {
@@ -110,18 +118,6 @@ ul {
   background-color: rgba(0, 0, 0, 0.3);
   color: var(--primary-color);
   text-align: center;
-}
-
-.units .active {
-  color: var(--primary-color);
-  font-size: 25px;
-  font-weight: 400;
-  vertical-align: -5px;
-}
-
-.units .active:hover {
-  text-decoration: none;
-  cursor: default;
 }
 
 .hourlyForecast td {
