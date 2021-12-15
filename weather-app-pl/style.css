@@ -46,6 +46,10 @@ ul {
   display: flex;
 }
 
+.searchNavbar{
+  padding: 5px 0;
+}
+
 .searchNavbar li {
   display: inline-block;
   text-decoration: none;
@@ -80,12 +84,13 @@ ul {
   vertical-align: 30px;
 }
 
-.feelsLike{
+.feelsLike {
   color: var(--secondary-color);
-  text-align:center;
+  text-align: center;
   font-style: italic;
   font-size: 10px;
 }
+
 .todayDate {
   color: var(--primary-color);
   font-size: 20px;
@@ -96,10 +101,6 @@ ul {
 
 .firstForecast {
   margin: 10px 0;
-}
-
-.firstForecast .firstForecastTime,
-.firstForecastTemp {
   font-size: 15px;
 }
 

@@ -43,7 +43,10 @@ ul {
 .navbarContainer {
   align-items: left;
   display: flex;
-  
+}
+
+.searchNavbar {
+  padding: 5px 0;
 }
 
 .searchNavbar li {
@@ -80,9 +83,9 @@ ul {
   vertical-align: 30px;
 }
 
-.feelsLike{
+.feelsLike {
   color: var(--secondary-color);
-  text-align:center;
+  text-align: center;
   font-style: italic;
   font-size: 10px;
 }
@@ -97,10 +100,6 @@ ul {
 
 .firstForecast {
   margin: 10px 0;
-}
-
-.firstForecast .firstForecastTime,
-.firstForecastTemp {
   font-size: 15px;
 }
 
