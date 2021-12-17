@@ -1,6 +1,6 @@
 //Date
-let now = new Date()
-let days = [
+const now = new Date()
+const days = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -9,10 +9,10 @@ let days = [
   "Friday",
   "Saturday",
 ]
-let day = days[now.getDay()]
-let hours = now.getHours()
-let minutes = now.getMinutes()
-let today = document.querySelector("#today-date")
+const day = days[now.getDay()]
+const hours = now.getHours()
+const minutes = now.getMinutes()
+const today = document.querySelector("#today-date")
 
 if (minutes < 10) {
   today.innerHTML = `${day}, ${hours}:0${minutes}`
@@ -63,6 +63,13 @@ function showHumidity(response) {
   ).innerHTML = `${response.data.main.humidity}`
 }
 
+/*const showWindSpeed = (response) => {
+    document.querySelector("#wind-speed").innerHTML = `${
+    Math.round(response.data.wind.speed * 10) / 10
+  }`
+} 
+*/
+
 function showWindSpeed(response) {
   document.querySelector("#wind-speed").innerHTML = `${
     Math.round(response.data.wind.speed * 10) / 10
@@ -71,21 +78,21 @@ function showWindSpeed(response) {
 
 //Function formating to hours
 function formatHours(x) {
-  let date = new Date(x * 1000)
-  let hours = date.getHours()
+  const date = new Date(x * 1000)
+  const hours = date.getHours()
 
   return hours
 }
 
 //Function displaying first 5 hours of forecast
 function displayFirstForecast(response) {
-  let forecast = response.data.hourly
-  let firstForecast = document.querySelector("#first-forecast")
+  const forecast = response.data.hourly
+  const firstForecast = document.querySelector("#first-forecast")
   let forecastHTML = `<div class="row px-3 py-0">`
 
   forecast.forEach(function (forecastHour, index) {
-    let temp = `${Math.round(forecastHour.temp)}`
-    let firstForecastTemp = document.querySelector(".firstForecastTemp")
+    const temp = `${Math.round(forecastHour.temp)}`
+    const firstForecastTemp = document.querySelector(".firstForecastTemp")
 
     if (index > 0 && index < 6) {
       forecastHTML =
@@ -113,8 +120,8 @@ function displayFirstForecast(response) {
 
 //Function displaying hourly forecast
 function displayHourlyForecast(response) {
-  let forecast = response.data.hourly
-  let hourlyForecast = document.querySelector("#hourly-forecast")
+  const forecast = response.data.hourly
+  const hourlyForecast = document.querySelector("#hourly-forecast")
   let forecastHTML = `<div class="table-responsive shadow"><table class="table" ><tbody><tr>`
 
   forecast.forEach(function (forecastHour, index) {
@@ -151,8 +158,8 @@ function displayHourlyForecast(response) {
 
 //Function formating date for the foreast
 function formatDay(x) {
-  let date = new Date(x * 1000)
-  let days = [
+  const date = new Date(x * 1000)
+  const days = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -161,15 +168,15 @@ function formatDay(x) {
     "Friday",
     "Saturday",
   ]
-  let day = days[date.getDay()]
+  const day = days[date.getDay()]
 
   return day
 }
 
 //Function displaying daily forecast
 function displayDailyForecast(response) {
-  let forecast = response.data.daily
-  let dailyForecast = document.querySelector("#daily-forecast")
+  const forecast = response.data.daily
+  const dailyForecast = document.querySelector("#daily-forecast")
   let forecastHTML = `<table class="table table-sm shadow">`
 
   forecast.forEach(function (forecastDay, index) {
@@ -205,8 +212,8 @@ function displayForecasts(response) {
 }
 
 function getForecast(coordinates) {
-  let apiKey = "e2e761297b5d8c34616696904be5d3a8"
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=minutely&appid=${apiKey}&units=metric`
+  const apiKey = "e2e761297b5d8c34616696904be5d3a8"
+  const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=minutely&appid=${apiKey}&units=metric`
 
   axios.get(apiUrl).then(displayForecasts)
 }
@@ -225,8 +232,8 @@ function displayInfo(response) {
 
 //Function searching info about the city
 function searchCity(city) {
-  let apiKey = "e2e761297b5d8c34616696904be5d3a8"
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+  const apiKey = "e2e761297b5d8c34616696904be5d3a8"
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
 
   if (city) {
     axios.get(`${apiUrl}`).then(displayInfo)
@@ -238,16 +245,16 @@ function searchCity(city) {
 //Function that's receiving city
 function handleSubmit(event) {
   event.preventDefault()
-  let city = document.querySelector("#search-city-input").value
+  const city = document.querySelector("#search-city-input").value
   searchCity(city)
 }
 
 //Function displaying info about the current city
 function showPosition(position) {
-  let lat = position.coords.latitude
-  let lon = position.coords.longitude
-  let apiKey = "e2e761297b5d8c34616696904be5d3a8"
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+  const lat = position.coords.latitude
+  const lon = position.coords.longitude
+  const apiKey = "e2e761297b5d8c34616696904be5d3a8"
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
 
   axios.get(`${apiUrl}`).then(displayInfo)
 }
@@ -261,10 +268,10 @@ function getLocation() {
   }
 }
 
-let currentLocationBtn = document.querySelector(".currentLocation")
+const currentLocationBtn = document.querySelector(".currentLocation")
 currentLocationBtn.addEventListener("click", getLocation)
 
-let form = document.querySelector("#search-city")
+const form = document.querySelector("#search-city")
 form.addEventListener("submit", handleSubmit)
 
 //default
