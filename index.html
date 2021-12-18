@@ -9,24 +9,22 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://kit.fontawesome.com/5397d98a18.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css">
 
-  <link rel="stylesheet" href="style.css">
-
-  <title>Check the weather in your city!</title>
+  <title>Weather in your city</title>
 </head>
 
 <body>
   <div class="container">
 
     <div class="navbarContainer">
-      <nav class="navbar searchNavbar">
+      <nav class="navbar searchNavbar my-2">
         <li>
-          <form class="form-inline my-2" id="search-city">
+          <form class="form-inline" id="search-city">
         </li>
-        <li><input class="form-control mr-sm-2" type="search" placeholder="Search city" aria-label="Search"
+        <li><input class="form-control" type="search" placeholder="Search city" aria-label="Search"
             id="search-city-input" autocomplete="off" autofocus="on"></li>
-        <li><button class="btn btn-outline-info my-2 my-sm-0" type="submit"><i
-              class="fas fa-search-location"></i></button></li>
+        <li><button class="btn btn-outline-info" type="submit"><i class="fas fa-search-location"></i></button></li>
         <li><button type="button" class="btn btn-outline-success currentLocation d-none d-md-block"><i
               class="fas fa-street-view"></i></button></li>
         </form>
@@ -42,7 +40,6 @@
     </h1>
 
     <div class="row">
-
       <div class="col-4 weatherInfo p-0">
         <ul>
           <br />
@@ -79,7 +76,6 @@
           </li>
         </ul>
       </div>
-
     </div>
 
     <div class="firstForecast shadow" id="first-forecast"></div>
@@ -99,11 +95,10 @@
     </div>
 
     <h6>
-      <a href="https://github.com/dkkazmierczak/weather-app" class="">Open-source code</a> by Dominika Kaźmierczak
+      <a href="https://github.com/dkkazmierczak/weather-app" target="_blank">Open-source code</a> by Dominika
+      Kaźmierczak
     </h6>
-
   </div>
-
 
   <script src="script.js">
   </script>
