@@ -2,7 +2,7 @@
 
 So go ahead and type your city!
 You can select as well a location button to get weather at your location! ✔
-Or if you are polish, just click the button "PL" to go to website in polish version 🥂
+Or if you are polish, just click the button "PL" to go to the website in polish version 🥂
 
 Website URL - https://peaceful-bell-2f5896.netlify.app/ 💜
 

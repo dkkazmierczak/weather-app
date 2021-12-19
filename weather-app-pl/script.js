@@ -90,20 +90,12 @@ function displayFirstForecast(response) {
     if (index > 0 && index < 6) {
       forecastHTML =
         forecastHTML +
-        `
-    <div class="col p-2">
-      <div class="time">${formatHours(forecastHour.dt)}:00</div>
-      <div class="icon">
-      <img 
-        src="http://openweathermap.org/img/wn/${
-          forecastHour.weather[0].icon
-        }@2x.png" 
-        alt="" 
-        width="30"/>
-      </div>
-      <div class="firstForecastTemp">${temp}°</div>
-    </div>
-  `
+        `<div class="col p-2">
+          <div>${formatHours(forecastHour.dt)}:00</div>
+          <div><img src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png" width="30"/>
+          </div>
+          <div>${temp}°</div>
+        </div> `
     }
   })
   forecastHTML = forecastHTML + `</div>`
@@ -131,7 +123,7 @@ function displayHourlyForecast(response) {
       forecastHTML =
         forecastHTML +
         `<td>
-        <img src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png" alt="" width="30"/>
+        <img src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png" width="30"/>
         </td>`
     }
   })
@@ -142,7 +134,7 @@ function displayHourlyForecast(response) {
     if (index > 5 && index < 25) {
       forecastHTML =
         forecastHTML +
-        `<td class="temperature">${Math.round(forecastHour.temp)}°</td>`
+        `<td>${Math.round(forecastHour.temp)}°</td>`
     }
   })
 
@@ -185,9 +177,9 @@ function displayDailyForecast(response) {
             <td class>
             <img src="http://openweathermap.org/img/wn/${
               forecastDay.weather[0].icon
-            }@2x.png" alt="" width="25"/>
+            }@2x.png" width="25"/>
             </td>
-            <td class="minTempDaily">${Math.round(forecastDay.temp.min)}°</td>
+            <td class="min-temp-daily">${Math.round(forecastDay.temp.min)}°</td>
             <td>${Math.round(forecastDay.temp.max)}°</td>
           </tr>
         <tbody>
@@ -262,7 +254,7 @@ function getLocation() {
   }
 }
 
-const currentLocationBtn = document.querySelector(".currentLocation")
+const currentLocationBtn = document.querySelector("#current-location")
 currentLocationBtn.addEventListener("click", getLocation)
 
 const form = document.querySelector("#search-city")

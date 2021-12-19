@@ -17,60 +17,60 @@
 <body>
   <div class="container">
 
-    <div class="navbarContainer">
-      <nav class="navbar searchNavbar my-2">
+    <div class="navbar-container">
+      <nav class="navbar search-navbar my-2">
         <li>
           <form class="form-inline" id="search-city">
         </li>
         <li><input class="form-control" type="search" placeholder="Wyszukaj miasto" aria-label="Search"
             id="search-city-input" autocomplete="off" autofocus="on"></li>
         <li><button class="btn btn-outline-info" type="submit"><i class="fas fa-search-location"></i></button></li>
-        <li><button type="button" class="btn btn-outline-success currentLocation d-none d-md-block"><i
+        <li><button type="button" class="btn btn-outline-success d-none d-md-block" id="current-location"><i
               class="fas fa-street-view"></i></button></li>
         </form>
-        <a href="../index.html" class="btn btn-outline-info languageButton" role="button">EN</a>
+        <a href="../index.html" class="btn btn-outline-info" role="button">EN</a>
       </nav>
     </div>
 
     <h1>
       <span id="city"></span>
       <br />
-      <span class="tempHeading" id="temp-heading"></span>
+      <span class="temp-heading" id="temp-heading"></span>
       <span class="units">C</span>
     </h1>
 
     <div class="row">
-      <div class="col-4 weatherInfo p-0">
+      <div class="col-4 weather-info p-0">
         <ul>
           <br />
           <li>
-            Max : <span class="maxTemp" id="max-temp"></span>
+            Max : <span class="max-temp" id="max-temp"></span>
           </li>
-          <li>
-            <span class="minTemp">Min :</span> <span class="minTemp" id="min-temp"></span>
+          <li class="min-temp">
+            Min : <span id="min-temp"></span>
           </li>
         </ul>
       </div>
 
       <div class="col-4 p-0">
         <ul>
-          <li class="feelsLike">
+          <li class="feels-like">
             Odczuwalna <span id="feels-like"></span>
           </li>
-          <li class="todayDate" id="today-date">
+          <li class="today-date" id="today-date">
           </li>
-          <li class="skyDescription" id="sky-description"></li>
+          <li class="sky-description" id="sky-description"></li>
         </ul>
       </div>
 
-      <div class="col-4 weatherInfo p-0">
+      <div class="col-4 weather-info p-0">
         <ul>
           <br />
-          <li class="humidity">
+          <li>
             Wilgotność :
             <span id="humidity"></span>%
           </li>
-          <li class="windSpeed">
+          <li>
             Wiatr :
             <span id="wind-speed"></span>km/h
           </li>
@@ -78,27 +78,26 @@
       </div>
     </div>
 
-    <div class="firstForecast shadow" id="first-forecast"></div>
+    <div class="first-forecast shadow" id="first-forecast"></div>
 
-    <div class="tableHeading">
+    <div class="table-heading">
       🕜 PROGNOZA GODZINOWA
     </div>
 
-    <div class="hourlyForecast" id="hourly-forecast">
+    <div class="hourly-forecast" id="hourly-forecast">
     </div>
 
-    <div class="tableHeading">
+    <div class="table-heading">
       📅 5-DNIOWA PROGNOZA
     </div>
 
-    <div class="dailyForecast" id="daily-forecast">
+    <div class="daily-forecast" id="daily-forecast">
     </div>
 
     <h6>
       <a href="https://github.com/dkkazmierczak/weather-app/tree/main/weather-app-pl" target="_blank">Otwarty kod
         żródłowy</a>
-      stworzony przez
-      Dominikę Kaźmierczak
+      stworzony przez Dominikę Kaźmierczak
     </h6>
   </div>
 
