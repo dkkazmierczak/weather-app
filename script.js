@@ -99,7 +99,7 @@ function displayFirstForecast(response) {
         forecastHTML +
         `<div class="col p-2">
           <div>${formatHours(forecastHour.dt)}:00</div>
-          <div><img src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png" width="40"/></div>
+          <div><img src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png" class="ff-img"/></div>
           <div>${temp}°</div>
         </div>`
     }
@@ -129,7 +129,7 @@ function displayHourlyForecast(response) {
       forecastHTML =
         forecastHTML +
         `<td>
-        <img src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png" width="30"/>
+        <img src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png" class="hf-img"/>
         </td>`
     }
   })
@@ -176,7 +176,7 @@ function displayDailyForecast(response) {
         forecastHTML + ` <tbody>
           <tr>
             <th scope="row">${formatDay(forecastDay.dt)}</th>
-            <td><img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="30"/></td>
+            <td><img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" class="df-img"/></td>
             <td class="min-temp-daily">${Math.round(forecastDay.temp.min)}°</td>
             <td>${Math.round(forecastDay.temp.max)}°</td>
           </tr>
