@@ -1,10 +1,7 @@
 body {
-  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/020/133/original/halden2.jpg?1635620542");
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100%;
-  width: 100%;
+  background: #120C2E;
 }
+
 :root {
   --primary-color: white;
   --secondary-color: rgba(255, 255, 255, 0.5);

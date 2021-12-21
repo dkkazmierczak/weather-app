@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+  <title>Weather in your city</title>
+  <meta name="description" content="Weather-app is a weather website, showing current weather and forecast for many cities in the world!">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +12,6 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://kit.fontawesome.com/5397d98a18.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
-
-  <title>Weather in your city</title>
 </head>
 
 <body>
@@ -24,11 +24,11 @@
         </li>
         <li><input class="form-control" type="search" placeholder="Search city" aria-label="Search"
             id="search-city-input" autocomplete="off" autofocus="on"></li>
-        <li><button class="btn btn-outline-info" type="submit"><i class="fas fa-search-location"></i></button></li>
+        <li><button class="btn btn-outline-info" type="submit"><i class="fas fa-search-location" title="Search"></i></button></li>
         <li><button type="button" class="btn btn-outline-success d-none d-md-block" id="current-location"><i
               class="fas fa-street-view"></i></button></li>
         </form>
-        <a href="../weather-app-pl/index.html" class="btn btn-outline-info lng-btn" role="button">PL</a>
+        <a href="../weather-app-pl/index.html" class="btn btn-outline-info lng-btn" role="button" title="Polish version">PL</a>
       </nav>
     </div>
 
@@ -93,7 +93,7 @@
     </div>
 
     <h6>
-      <a href="https://github.com/dkkazmierczak/weather-app" target="_blank">Open-source code</a> by Dominika
+      <a href="https://github.com/dkkazmierczak/weather-app" target="_blank" title="Link to GitHub">Open-source code</a> by Dominika
       Kaźmierczak
     </h6>
   </div>
