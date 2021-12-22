@@ -31,6 +31,7 @@ if (minutes < 10) {
 //All the displaying functions
 function showCity(response) {
   document.querySelector("#city").innerHTML = response.data.name
+  document.querySelector("title").innerHTML = `Prognoza pogody | ${response.data.name}`
 }
 
 function showTemperature(response) {
