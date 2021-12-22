@@ -25,7 +25,7 @@ if (minutes < 10) {
   if (hours > 18 || hours < 6) {
     document.body.style.background = `linear-gradient(300deg, rgb(142, 174, 253) 0%, rgb(13, 5, 37) 91%)`
   } else {
-    document.body.style.background = `linear-gradient(300deg, rgb(241, 243, 248) 0%, rgb(142, 174, 253) 91%);`
+    document.body.style.background = `linear-gradient(300deg, rgb(241, 243, 248) 0%, rgb(142, 174, 253) 91%)`
   }
 
 
