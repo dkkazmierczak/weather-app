@@ -179,7 +179,7 @@ function displayDailyForecast(response) {
   let forecastHTML = `<table class="table table-sm shadow">`
 
   forecast.forEach(function (forecastDay, index) {
-    if (index > 0 && index < 7) {
+    if (index > 0 && index < 8) {
       forecastHTML =
         forecastHTML + ` <tbody>
           <tr>
