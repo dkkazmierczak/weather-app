@@ -188,7 +188,7 @@ function displayDailyForecast(response) {
             <td class="min-temp-daily">${Math.round(forecastDay.temp.min)}°</td>
             <td>${Math.round(forecastDay.temp.max)}°</td>
           </tr>
-        <tbody>
+        </tbody>
   `
     }
   })
